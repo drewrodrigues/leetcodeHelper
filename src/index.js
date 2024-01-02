@@ -1,4 +1,5 @@
 import { ExploreProgressCardIndicator, RandomButton } from "./elements";
+import { createElement } from "./helpers/createElement";
 
 function main() {
   const $completedChallenges = document.querySelectorAll(
@@ -19,21 +20,26 @@ function main() {
     ].click();
   }
 
-  const $insertionContainer = document.querySelector(".card-intro-base");
-  $insertionContainer.prepend(RandomButton({ onClick: clickRandomIncomplete }));
-  $insertionContainer.prepend(
-    ExploreProgressCardIndicator({
-      textContent: progressPercentage,
-      challengeCount: $allChallenges.length,
-      completedChallengeCount: $completedChallenges.length,
-    })
-  );
+  // if the elements are there, remove them so we can re-insert them with updates
+  const $extension = document.querySelector(".leetcode_helper-extension");
+  if ($extension) $extension.remove();
+  const $extensionContainer = createElement("section", {
+    className: "extension",
+    children: [
+      ExploreProgressCardIndicator({
+        textContent: progressPercentage,
+        challengeCount: $allChallenges.length,
+        completedChallengeCount: $completedChallenges.length,
+      }),
+      RandomButton({ onClick: clickRandomIncomplete }),
+    ],
+  });
+  const $insertionContainer = document.querySelector(".intro-area");
+
+  $insertionContainer.prepend($extensionContainer);
 }
 
-const startInterval = setInterval(() => {
-  // TODO: change this logic to account for a sidebar topic being selected
-
-  console.log("trying to attach");
+setInterval(() => {
   const $itemsNeededToLoad = document.querySelectorAll(
     ".chapter-list-area .chapter-list-item"
   );
@@ -41,15 +47,23 @@ const startInterval = setInterval(() => {
   const $loadedItems = document.querySelectorAll(".table-header");
   const excludeOverviewAndDiscuss = 2;
 
-  if (
-    $itemsNeededToLoad.length - excludeOverviewAndDiscuss ===
-    $loadedItems.length
-  ) {
-    clearInterval(startInterval);
-    main();
+  /*
+    If a chapter is selected, we just check for the chapter content
+  */
+  const isOverviewSelected =
+    document.querySelector(".chapter-list-item.active .title")?.textContent ===
+    "Overview";
 
-    // FIXME: this doesn't work -- look into
-    // if navigating away, we'll start the interval again. Might need to poll
-    window.addEventListener("beforeunload", () => setInterval(startInterval));
+  const isChapterLoaded = document.querySelector(".chapter-content");
+
+  if (
+    isOverviewSelected
+      ? $itemsNeededToLoad.length - excludeOverviewAndDiscuss ===
+        $loadedItems.length
+      : isChapterLoaded
+  ) {
+    main();
   }
 }, 50);
+
+// TODO: change to where we set a mutation observer after we insert and then once there's a change we'll trigger the water

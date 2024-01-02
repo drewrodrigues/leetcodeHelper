@@ -8,5 +8,6 @@ export function createElement(elementType, props) {
   for (const key in props.styles || {}) {
     $element.style[key] = props.styles[key];
   }
+  if (props.onClick) $element.addEventListener("click", props.onClick);
   return $element;
 }

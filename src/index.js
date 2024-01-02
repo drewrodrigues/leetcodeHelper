@@ -1,6 +1,12 @@
 import { ExploreProgressCardIndicator, RandomButton } from "./elements";
 import { createElement } from "./helpers/createElement";
 
+let lastKnownCounts = {
+  completedChallenges: null,
+  incompleteChallenges: null,
+  allChallenges: null,
+};
+
 function main() {
   const $completedChallenges = document.querySelectorAll(
     ".check-mark.completed"
@@ -19,6 +25,19 @@ function main() {
       Math.floor(Math.random() * $incompleteChallenges.length) + 1
     ].click();
   }
+
+  if (
+    lastKnownCounts.completedChallenges === $completedChallenges.length &&
+    lastKnownCounts.incompleteChallenges === $incompleteChallenges.length &&
+    lastKnownCounts.allChallenges === $allChallenges.length
+  ) {
+    return;
+  }
+  lastKnownCounts = {
+    completedChallenges: $completedChallenges.length,
+    incompleteChallenges: $incompleteChallenges.length,
+    allChallenges: $allChallenges.length,
+  };
 
   // if the elements are there, remove them so we can re-insert them with updates
   const $extension = document.querySelector(".leetcode_helper-extension");

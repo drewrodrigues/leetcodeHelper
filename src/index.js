@@ -1,4 +1,4 @@
-import { ExploreProgressCardIndicator, SelectRandomButton } from "./elements";
+import { ExploreProgressCardIndicator, RandomButton } from "./elements";
 
 function main() {
   const $completedChallenges = document.querySelectorAll(
@@ -20,9 +20,7 @@ function main() {
   }
 
   const $insertionContainer = document.querySelector(".card-intro-base");
-  $insertionContainer.prepend(
-    SelectRandomButton({ onClick: clickRandomIncomplete })
-  );
+  $insertionContainer.prepend(RandomButton({ onClick: clickRandomIncomplete }));
   $insertionContainer.prepend(
     ExploreProgressCardIndicator({
       textContent: progressPercentage,

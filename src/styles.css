@@ -1,0 +1,47 @@
+/*
+  To namespace classes to .leetcode_helper-<classname> to avoid conflicts or
+  overwriting any existing styles
+*/
+@prefix leetcode_helper;
+
+:root {
+  --text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  background: #e6e6e6;
+  padding: 5px 10px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-text {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: white;
+  text-shadow: var(--text-shadow);
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(#dbeb50, #79b332);
+  z-index: 0;
+}
+
+.random-button {
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: linear-gradient(to top, #ff8200, #ffb800);
+  text-shadow: var(--text-shadow);
+  color: white;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+}

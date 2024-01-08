@@ -1,8 +1,12 @@
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
+  entry: {
+    index: "./src/index.js",
+    difficultyHider: "./src/features/difficultyHider.js",
+  },
   output: {
-    filename: "index.js",
+    filename: "[name].js",
   },
   module: {
     rules: [

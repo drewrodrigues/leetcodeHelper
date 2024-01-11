@@ -9,6 +9,11 @@ export function disableSyntaxHighlighting() {
       ".monaco-scrollable-element span { color: white !important; opacity: 1 !important; }"
     )
   );
+  $style.appendChild(
+    document.createTextNode(
+      ".CodeMirror-line span { color: white !important; opacity: 1 !important; }"
+    )
+  );
 }
 
 export function enableSyntaxHighlighting() {

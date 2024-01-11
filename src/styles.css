@@ -68,6 +68,9 @@ Feature Bar
 
 .feature-label {
   cursor: inherit;
+  color: white !important;
+  margin: 0 !important;
+  font-weight: 400 !important;
 }
 
 .feature-toggle--on {

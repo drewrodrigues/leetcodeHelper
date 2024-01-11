@@ -1,3 +1,7 @@
+# Leetcode Helper
+
+![Screenshot of toolbar](./.github/screenshot.png)
+
 # Dev Loop
 
 1. Run `npm run dev`

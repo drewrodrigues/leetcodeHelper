@@ -12,5 +12,6 @@
       "js": ["difficultyHider.js"],
       "matches": ["https://*.leetcode.com/problems/*"]
     }
-  ]
+  ],
+  "permissions": ["storage"]
 }

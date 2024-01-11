@@ -10,7 +10,6 @@
 
 - [ ] Improve re-rendering logic on explore page
 - [ ] Add countdown timer pre-sets w/ alarm on code challenge page
-- [ ] Add button to remove syntax highlighting
 
 # Permissions
 

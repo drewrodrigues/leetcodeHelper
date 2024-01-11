@@ -88,5 +88,4 @@ setInterval(() => {
 
 // TODO: change to where we set a mutation observer after we insert and then once there's a change we'll trigger the water
 
-console.log("inserted index.js");
 initExtensionBar();

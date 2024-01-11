@@ -1,4 +1,5 @@
 import { ExploreProgressCardIndicator, RandomButton } from "./elements";
+import { initExtensionBar } from "./features/extensionBar";
 import { createElement } from "./helpers/createElement";
 
 let lastKnownCounts = {
@@ -86,3 +87,6 @@ setInterval(() => {
 }, 50);
 
 // TODO: change to where we set a mutation observer after we insert and then once there's a change we'll trigger the water
+
+console.log("inserted index.js");
+initExtensionBar();

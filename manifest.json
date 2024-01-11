@@ -2,11 +2,11 @@
   "manifest_version": 3,
   "name": "Leetcode Helper",
   "description": "Nice to have helper utilities for leetcode",
-  "version": "1.0",
+  "version": "0.0.1",
   "content_scripts": [
     {
       "js": ["index.js"],
-      "matches": ["https://*.leetcode.com/explore/*/card/*"]
+      "matches": ["https://*.leetcode.com/*"]
     },
     {
       "js": ["difficultyHider.js"],

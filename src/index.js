@@ -1,5 +1,5 @@
 import { ExploreProgressCardIndicator, RandomButton } from "./elements";
-import { initExtensionBar } from "./features/extensionBar";
+import { initExtensionBar } from "./components/extensionBar";
 import { createElement } from "./helpers/createElement";
 
 let lastKnownCounts = {

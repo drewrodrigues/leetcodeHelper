@@ -1,17 +1,22 @@
 export class StyleHandler {
-  _$style;
+  _$stylesheet;
+  _$styles;
 
-  constructor() {
-    this._$style = document.createElement("style");
-    this._$style.setAttribute("type", "text/css");
-    document.head.appendChild(this._$style);
+  constructor(styles) {
+    this._$stylesheet = document.createElement("style");
+    this._$stylesheet.setAttribute("type", "text/css");
+    document.head.appendChild(this._$stylesheet);
+    this._$styles = styles;
   }
 
-  addStyle(style) {
-    this._$style.appendChild(document.createTextNode(style));
+  on() {
+    if (this._$stylesheet.textContent) return;
+    for (const style of this._$styles) {
+      this._$stylesheet.appendChild(document.createTextNode(style));
+    }
   }
 
-  clearStyle() {
-    this._$style.textContent = "";
+  off() {
+    this._$stylesheet.textContent = "";
   }
 }

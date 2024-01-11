@@ -1,26 +1,23 @@
+import difficultyHider from "../features/difficultyHider";
+import hideExamples from "../features/hideExamples";
+import hideSyntaxErrors from "../features/noSyntaxError";
+import disableSyntaxHighlighting from "../features/noSyntaxHighlighting";
+import { createElement } from "../helpers/createElement";
 import { prefixedName } from "../helpers/prefixedClassName";
 import {
   STORAGE_KEYS,
   getStorageValue,
   setStorageValue,
 } from "../helpers/storage";
-import { hideDifficulty, showDifficulty } from "./difficultyHider";
-import { disableExamples, enableExamples } from "./hideExamples";
-import { disableSyntaxErrors, enableSyntaxErrors } from "./noSyntaxError";
-import {
-  disableSyntaxHighlighting,
-  enableSyntaxHighlighting,
-} from "./noSyntaxHighlighting";
 
-const { createElement } = require("../helpers/createElement");
-
+// ! restoring state is not working as expected
 export async function initExtensionBar() {
   const $hideDifficulty = await Feature({
     dataKey: STORAGE_KEYS.HIDE_DIFFICULTY,
     label: "Hide Difficulty",
     onClick: (toggled) => {
-      if (toggled) hideDifficulty();
-      else showDifficulty();
+      if (toggled) difficultyHider.on();
+      else difficultyHider.off();
     },
   });
 
@@ -28,26 +25,26 @@ export async function initExtensionBar() {
     dataKey: STORAGE_KEYS.DISABLE_SYNTAX_HIGHLIGHTING,
     label: "Disable Syntax Highlighting",
     onClick: (toggled) => {
-      if (toggled) disableSyntaxHighlighting();
-      else enableSyntaxHighlighting();
+      if (toggled) disableSyntaxHighlighting.on();
+      else disableSyntaxHighlighting.off();
     },
   });
 
   const $disableSyntaxErrors = await Feature({
     dataKey: STORAGE_KEYS.DISABLE_SYNTAX_ERRORS,
-    label: "Disable Syntax Errors",
+    label: "Hide Syntax Errors",
     onClick: (toggled) => {
-      if (toggled) disableSyntaxErrors();
-      else enableSyntaxErrors();
+      if (toggled) hideSyntaxErrors.on();
+      else hideSyntaxErrors.off();
     },
   });
 
   const $disableExamples = await Feature({
     dataKey: STORAGE_KEYS.DISABLE_EXAMPLES,
-    label: "Disable Examples",
+    label: "Hide Examples",
     onClick: (toggled) => {
-      if (toggled) disableExamples();
-      else enableExamples();
+      if (toggled) hideExamples.on();
+      else hideExamples.off();
     },
   });
 

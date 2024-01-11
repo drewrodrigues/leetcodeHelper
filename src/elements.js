@@ -3,20 +3,20 @@ import "./styles.css";
 
 export function ExploreProgressCardIndicator(props) {
   const $progressPercentage = createElement("p", {
-    className: "progress-text",
+    classNames: ["progress-text"],
     textContent: `${props.textContent}%`,
   });
   const $progressCount = createElement("p", {
     textContent: `${props.completedChallengeCount} / ${props.challengeCount}`,
-    className: "progress-text",
+    classNames: ["progress-text"],
   });
   const $progressFill = createElement("div", {
-    className: "progress-fill",
+    classNames: ["progress-fill"],
     styles: { width: `${props.textContent}%` },
   });
 
   const $container = createElement("div", {
-    className: "container",
+    classNames: ["container"],
     children: [$progressPercentage, $progressCount, $progressFill],
   });
 
@@ -25,7 +25,7 @@ export function ExploreProgressCardIndicator(props) {
 
 export function RandomButton(props) {
   const $button = createElement("button", {
-    className: 'random-button',
+    classNames: ['random-button'],
     textContent: "Pick Random Incomplete",
     onClick: props.onClick
   });

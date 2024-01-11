@@ -44,7 +44,7 @@ function main() {
   const $extension = document.querySelector(".leetcode_helper-extension");
   if ($extension) $extension.remove();
   const $extensionContainer = createElement("section", {
-    className: "extension",
+    classNames: ["extension"],
     children: [
       ExploreProgressCardIndicator({
         textContent: progressPercentage,

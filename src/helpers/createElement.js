@@ -1,7 +1,11 @@
 export function createElement(elementType, props = {}) {
   const $element = document.createElement(elementType);
-  if (props.className)
-    $element.classList.add(`leetcode_helper-${props.className}`);
+  if (props.classNames) {
+    for (const className of props.classNames) {
+      if (!className) continue;
+      $element.classList.add(`leetcode_helper-${className}`);
+    }
+  }
   $element.textContent = props.textContent;
   for (const child of props.children || []) {
     $element.appendChild(child);

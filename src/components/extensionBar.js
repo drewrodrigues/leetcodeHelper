@@ -10,7 +10,6 @@ import {
   setStorageValue,
 } from "../helpers/storage";
 
-// ! restoring state is not working as expected
 export async function initExtensionBar() {
   const $hideDifficulty = await Feature({
     dataKey: STORAGE_KEYS.HIDE_DIFFICULTY,

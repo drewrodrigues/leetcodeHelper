@@ -18,3 +18,7 @@
 # Permissions
 
 - `storage`: Used to store which features are enable/disabled and restore their state on extension loading.
+
+# Known Bugs
+
+- Styles are reliant upon this PR https://github.com/drewrodrigues/postcss-namespace-2/pulls?q=is%3Apr+is%3Aclosed. This can be changed manually in node modules for now. Later I'll publish the package with a bumped version since it's no longer maintained.

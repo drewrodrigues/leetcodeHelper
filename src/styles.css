@@ -61,7 +61,6 @@ Feature Bar
 .light .bar {
   background: #f0f0f0;
   color: #686868;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .dark .bar {
@@ -93,21 +92,15 @@ Feature Bar
 
 .feature-container {
   cursor: pointer;
-  opacity: 0.5;
   transition: background 250ms ease-in-out;
   margin-right: 10px;
-  background: rgba(0, 0, 0, 0.25);
-  opacity: 1;
   padding: 5px 10px;
   border-radius: 10px;
   user-select: none;
-}
-
-.light .feature-container {
   background: #e7e7e7;
 }
 
-.light .feature-container:hover {
+.feature-container:hover {
   background: #e2e2e2;
 }
 

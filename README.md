@@ -1,6 +1,7 @@
 # Leetcode Helper
 
-![Screenshot of toolbar](./.github/screenshot.png)
+![Screenshot of toolbar](./.github/screenshot-dark.png)
+![Screenshot of toolbar](./.github/screenshot-light.png)
 
 # Dev Loop
 

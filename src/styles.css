@@ -1,8 +1,10 @@
 /*
   To namespace classes to .leetcode_helper-<classname> to avoid conflicts or
-  overwriting any existing styles
+  overwriting any existing styles.
+
+  Don't prefix .light and .dark, so we can override styles based on theme.
 */
-@prefix leetcode_helper;
+@prefix leetcode_helper not(/light|dark/, /ignore/);
 
 :root {
   --text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -52,9 +54,20 @@ Feature Bar
 .bar {
   padding: 10px;
   font-size: 12px;
-  background: #0f0f0f;
-  border-bottom: 1px solid #1e1e1e;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
+}
+
+.light .bar {
+  background: #f0f0f0;
+  color: #686868;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .bar {
+  background: #0f0f0f;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .feature-toggle {
@@ -68,7 +81,6 @@ Feature Bar
 
 .feature-label {
   cursor: inherit;
-  color: white !important;
   margin: 0 !important;
   font-weight: 400 !important;
 }
@@ -82,15 +94,27 @@ Feature Bar
 .feature-container {
   cursor: pointer;
   opacity: 0.5;
-  transition: opacity 250ms ease-in-out;
+  transition: background 250ms ease-in-out;
   margin-right: 10px;
-  background: #222222;
+  background: rgba(0, 0, 0, 0.25);
   opacity: 1;
   padding: 5px 10px;
   border-radius: 10px;
   user-select: none;
 }
 
-.feature-container:hover {
-  opacity: 0.75;
+.light .feature-container {
+  background: #e7e7e7;
+}
+
+.light .feature-container:hover {
+  background: #e2e2e2;
+}
+
+.dark .feature-container {
+  background: #222222;
+}
+
+.dark .feature-container:hover {
+  background: #2f2f2f;
 }

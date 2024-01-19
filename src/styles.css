@@ -40,7 +40,6 @@
 
 .random-button {
   padding: 5px 10px;
-  margin-bottom: 20px;
   border-radius: 10px;
   background: linear-gradient(to top, #ff8200, #ffb800);
   text-shadow: var(--text-shadow);
@@ -49,13 +48,14 @@
 }
 
 /* -----------------------------------------------------------------------------
-Feature Bar
+Bar
 ----------------------------------------------------------------------------- */
 .bar {
   padding: 10px;
   font-size: 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
+  justify-content: space-between;
 }
 
 .light .bar {
@@ -67,6 +67,13 @@ Feature Bar
   background: #0f0f0f;
   color: white;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* -----------------------------------------------------------------------------
+Features (left side of bar)
+----------------------------------------------------------------------------- */
+.features {
+  display: flex;
 }
 
 .feature-toggle {
@@ -111,3 +118,7 @@ Feature Bar
 .dark .feature-container:hover {
   background: #2f2f2f;
 }
+
+/* -----------------------------------------------------------------------------
+Right side of bar (random button & progress)
+----------------------------------------------------------------------------- */

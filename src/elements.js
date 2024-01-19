@@ -25,9 +25,9 @@ export function ExploreProgressCardIndicator(props) {
 
 export function RandomButton(props) {
   const $button = createElement("button", {
-    classNames: ['random-button'],
+    classNames: ["random-button"],
     textContent: "Pick Random Incomplete",
-    onClick: props.onClick
+    onClick: props.onClick,
   });
   $button.textContent = "Pick Random Incomplete";
 

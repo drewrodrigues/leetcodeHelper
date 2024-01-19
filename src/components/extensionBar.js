@@ -1,3 +1,4 @@
+import { RandomButton } from "../elements";
 import difficultyHider from "../features/difficultyHider";
 import hideExamples from "../features/hideExamples";
 import hideSyntaxErrors from "../features/noSyntaxError";
@@ -10,6 +11,7 @@ import {
   setStorageValue,
 } from "../helpers/storage";
 
+// ? maybe we pull this into a extension pop out to keep vertical space
 export async function initExtensionBar() {
   const $hideDifficulty = await Feature({
     dataKey: STORAGE_KEYS.HIDE_DIFFICULTY,
@@ -47,13 +49,22 @@ export async function initExtensionBar() {
     },
   });
 
-  const $header = createElement("header", {
+  const $leftContainer = createElement("div", {
     children: [
       $hideDifficulty,
       $hideSyntaxHighlighting,
       $disableSyntaxErrors,
-      $disableExamples,
+      // $disableExamples,
     ],
+    classNames: ["features"],
+  });
+  // TODO: implement
+  // const $rightContainer = createElement("aside", {
+  //   children: [RandomButton({})],
+  // });
+
+  const $header = createElement("header", {
+    children: [$leftContainer],
     classNames: ["bar"],
   });
 

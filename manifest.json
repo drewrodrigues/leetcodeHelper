@@ -7,10 +7,6 @@
     {
       "js": ["index.js"],
       "matches": ["https://*.leetcode.com/*"]
-    },
-    {
-      "js": ["difficultyHider.js"],
-      "matches": ["https://*.leetcode.com/problems/*"]
     }
   ],
   "permissions": ["storage"]

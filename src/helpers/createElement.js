@@ -13,6 +13,8 @@ export function createElement(elementType, props = {}) {
   for (const key in props.styles || {}) {
     $element.style[key] = props.styles[key];
   }
+  if (props.href) $element.href = props.href;
+  if (props.target) $element.target = props.target;
   if (props.onClick) $element.addEventListener("click", props.onClick);
   return $element;
 }

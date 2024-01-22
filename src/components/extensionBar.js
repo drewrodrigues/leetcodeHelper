@@ -1,4 +1,3 @@
-import { RandomButton } from "../elements";
 import difficultyHider from "../features/difficultyHider";
 import hideExamples from "../features/hideExamples";
 import hideSyntaxErrors from "../features/noSyntaxError";

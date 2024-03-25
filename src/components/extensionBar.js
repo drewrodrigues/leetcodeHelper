@@ -1,7 +1,9 @@
+import { RandomButton } from "../elements";
 import difficultyHider from "../features/difficultyHider";
 import hideExamples from "../features/hideExamples";
 import hideSyntaxErrors from "../features/noSyntaxError";
 import disableSyntaxHighlighting from "../features/noSyntaxHighlighting";
+import clickRandomIncompleteProblem from "../features/randomProblem";
 import { createElement } from "../helpers/createElement";
 import { prefixedName } from "../helpers/prefixedClassName";
 import {
@@ -58,12 +60,15 @@ export async function initExtensionBar() {
     classNames: ["features"],
   });
   // TODO: implement
+  const $rightContainer = createElement("aside", {
+    children: [RandomButton({ onClick: clickRandomIncompleteProblem })],
+  });
   // const $rightContainer = createElement("aside", {
-  //   children: [RandomButton({})],
+  //   children: [MadeByMe()],
   // });
 
   const $header = createElement("header", {
-    children: [$leftContainer],
+    children: [$leftContainer, $rightContainer],
     classNames: ["bar"],
   });
 
